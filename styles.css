@@ -1,0 +1,14 @@
+.options {
+    margin-top: 20px;
+/*     display: flex;
+    justify-content: space-around;
+    gap: .5rem; */
+}
+
+.main-hidden {
+    display: none;
+}
+
+.hidden{
+    display: none;
+}

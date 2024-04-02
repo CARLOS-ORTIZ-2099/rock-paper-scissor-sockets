@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+        <h1>rock paper scissor</h1>
+
+        <input class="input-value" type="text" placeholder="type here your name">
+        <button class="send-data">search players</button>
+
+    <h1 class="charging hidden">cargando...</h1>
+
+    <div class="main-hidden">
+        <span>name player :
+            <strong class="user-name"></strong>
+        </span>
+        <br>
+        <span>name rival :
+            <strong class="rival-name"></strong>
+        </span>
+
+
+       <div class="options">
+           <button class="btn-option">piedra</button>
+           <button class="btn-option">papel</button>
+           <button class="btn-option">tijera</button>
+       </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+        <script src="index.js"></script>
+</body>
+</html>
