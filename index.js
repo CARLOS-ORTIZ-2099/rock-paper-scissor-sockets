@@ -5,6 +5,7 @@ const sendData = document.querySelector('.send-data')
 const mainHidden = document.querySelector('.main-hidden')
 const charging = document.querySelector('.charging')
 const userName = document.querySelector('.user-name')
+const turn =document.querySelector('.turn')
 const rivalName = document.querySelector('.rival-name')
 const btnOption = document.querySelectorAll('.btn-option')
 const dataInput = document.querySelector('.data-input')
@@ -38,10 +39,11 @@ socket.on('showGame', (data) => {
         player = data.user.find(user => user.name == nameUser)
       //  console.log(player);
       //  move = player.isTurn
-
+        
         rival = data.user.find(user => user.name !== nameUser)
       //  console.log(rival);
         
+        turn.textContent = player.isTurn ?  player.name : rival.name
         userName.innerHTML = `${player.name}`
         rivalName.innerHTML = `${rival.name}`
        // console.log(move);     
@@ -75,6 +77,7 @@ socket.on('change', (data) => {
     rival = data.find(user => user.id == rival.id)
    // console.log(player);
    // console.log(rival);
+   turn.textContent = player.isTurn ?  player.name : rival.name
    if(player.figure!= '' && rival.figure!= '') {
       checkWinner(player, rival)
       // cuando se encuentre un ganador reseteamos todo
@@ -97,39 +100,39 @@ function checkWinner(player, rival) {
     // los casos de triunfo
     // tijera gana papel
     if(player.figure == 'tijera' && rival.figure == 'papel'){
-        alert(`felicidades has ganado ${player.name}`)
+        alert(`felicidades has ganado ${player.name}, seleccionando ${player.figure} vs ${rival.figure} seleccionado de tu rival ${rival.name}`)
     }
 
     else if(rival.figure == 'tijera' && player.figure == 'papel') {
-        alert(`ha ganado tu rival ${rival.name}`)
+        alert(`ha ganado tu rival ${rival.name} con ${rival.figure} vs ${player.figure} que seleccionaste`)
     }
 
 
     // papel gana piedra
     if(player.figure == 'papel' && rival.figure == 'piedra'){
-        alert(`felicidades has ganado ${player.name}`)
+        alert(`felicidades has ganado ${player.name}, seleccionando ${player.figure} vs ${rival.figure} seleccionado de tu rival ${rival.name}`)
     }
 
     else if(rival.figure == 'papel' && player.figure == 'piedra') {
-        alert(`ha ganado tu rival ${rival.name}`)
+        alert(`ha ganado tu rival ${rival.name} con ${rival.figure} vs ${player.figure} que seleccionaste`)
     }
 
 
     // piedra gana tijera
     if(player.figure == 'piedra' && rival.figure == 'tijera'){
-        alert(`felicidades has ganado ${player.name}`)
+        alert(`felicidades has ganado ${player.name}, seleccionando ${player.figure} vs ${rival.figure} seleccionado de tu rival ${rival.name}`)
     }
 
     else if(rival.figure == 'piedra' && player.figure == 'tijera') {
-        alert(`ha ganado tu rival ${rival.name}`)
+        alert(`ha ganado tu rival ${rival.name} con ${rival.figure} vs ${player.figure} que seleccionaste`)
     }
     // enpate si ambas figuras son iguales
 
     if(rival.figure == player.figure ) {
-        alert(`se ha empatado`)
+        alert(`se ha empatado con ${player.figure} que seleccionaste vs ${rival.figure} que selecciono tu rival`)
     }
     else if(rival.figure == player.figure ) {
-        alert(`se ha empatado `)
+        alert(`se ha empatado con ${player.figure} que seleccionaste vs ${rival.figure} que selecciono tu rival`)
     }
 }
 

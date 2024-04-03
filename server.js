@@ -2,9 +2,10 @@ const http = require('http')
 const fs = require('fs')
 const {Server}  = require('socket.io')
 const colors  = require('colors') 
+const path = require('path')
 
 const server = http.createServer((req, res) => {
-   // console.log(req.url);
+    console.log(req.url);
     if(req.url == '/'){
         const stream = fs.createReadStream('./index.html') 
         stream.pipe(res) 
@@ -34,6 +35,21 @@ const server = http.createServer((req, res) => {
              res.end(`Error al leer el archivo index: ${err}`);
          });
     }
+    if(req.url.match(/.svg$/)){
+       // const reqPath = path.join(__dirname, 'public', req.url);
+        const fileStream = fs.createReadStream('./assets/oval.svg');
+
+        res.writeHead(200, {'Content-Type': 'image/svg+xml'});
+        fileStream.pipe(res);
+    }
+
+    if(req.url.match(/.jpg$/)){
+         const reqPath = path.join(__dirname,  req.url);
+         const fileStream = fs.createReadStream(reqPath);
+ 
+         res.writeHead(200, {'Content-Type': 'image/jpg'});
+         fileStream.pipe(res);
+     }
     
 })
 
@@ -81,9 +97,6 @@ io.on('connection', (socket) => {
 
 
 
-
-/* let u =  { name : 'name', id :123, turn : true, figure : undefined }
-let u1 =  { name : 'name1', id :124, turn : false, figure : undefined } */
 
 
 
