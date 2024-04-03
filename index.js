@@ -7,6 +7,7 @@ const charging = document.querySelector('.charging')
 const userName = document.querySelector('.user-name')
 const rivalName = document.querySelector('.rival-name')
 const btnOption = document.querySelectorAll('.btn-option')
+const dataInput = document.querySelector('.data-input')
 let nameUser = ''
 //let move = undefined
 let player 
@@ -20,6 +21,7 @@ sendData.addEventListener('click', (e) => {
         const data = {name : inputValue.value, id: new Date().getTime(), isTurn:true, figure: '' }
         socket.emit('register', data)
         charging.classList.contains('hidden') ? charging.classList.remove('hidden') : ''
+        !dataInput.classList.contains('data-hidden') ? dataInput.classList.add('data-hidden') : ''
     }
     
 })
@@ -48,8 +50,6 @@ socket.on('showGame', (data) => {
 })
 
 
-/* let u =  { name : 'name', id :123, turn : true, figure : undefined }
-let u1 =  { name : 'name1', id :124, turn : false, figure : undefined } */
 
 
 btnOption.forEach(btn => btn.addEventListener('click',  chooseOption))
@@ -75,40 +75,53 @@ socket.on('change', (data) => {
     rival = data.find(user => user.id == rival.id)
    // console.log(player);
    // console.log(rival);
-    checkWinner(player, rival)
+   if(player.figure!= '' && rival.figure!= '') {
+      checkWinner(player, rival)
+      // cuando se encuentre un ganador reseteamos todo
+      console.log(player);
+      player = {}
+      console.log(rival);
+      rival = {}
+      socket.emit('reset', {users : []})
+      mainHidden.classList.add('main-hidden')
+      dataInput.classList.remove('data-hidden') 
+      inputValue.value = ''
+   }
+   
 
 })
 
 
 function checkWinner(player, rival) {
+    console.log('entro');
     // los casos de triunfo
     // tijera gana papel
     if(player.figure == 'tijera' && rival.figure == 'papel'){
-        alert(`ha ganado ${player.name}`)
+        alert(`felicidades has ganado ${player.name}`)
     }
 
     else if(rival.figure == 'tijera' && player.figure == 'papel') {
-        alert(`ha ganado ${rival.name}`)
+        alert(`ha ganado tu rival ${rival.name}`)
     }
 
 
     // papel gana piedra
     if(player.figure == 'papel' && rival.figure == 'piedra'){
-        alert(`ha ganado ${player.name}`)
+        alert(`felicidades has ganado ${player.name}`)
     }
 
     else if(rival.figure == 'papel' && player.figure == 'piedra') {
-        alert(`ha ganado ${rival.name}`)
+        alert(`ha ganado tu rival ${rival.name}`)
     }
 
 
     // piedra gana tijera
-    if(player.figure == 'tijera' && rival.figure == 'papel'){
-        alert(`ha ganado ${player.name}`)
+    if(player.figure == 'piedra' && rival.figure == 'tijera'){
+        alert(`felicidades has ganado ${player.name}`)
     }
 
-    else if(rival.figure == 'tijera' && player.figure == 'papel') {
-        alert(`ha ganado ${rival.name}`)
+    else if(rival.figure == 'piedra' && player.figure == 'tijera') {
+        alert(`ha ganado tu rival ${rival.name}`)
     }
     // enpate si ambas figuras son iguales
 

@@ -70,6 +70,11 @@ io.on('connection', (socket) => {
        console.log(users); */
        io.emit('change', users)
    })
+
+   socket.on('reset', (data) => {
+      users = data.users
+      console.log(users);
+   })
     
 
 })
