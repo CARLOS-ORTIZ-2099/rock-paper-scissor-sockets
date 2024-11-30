@@ -1,138 +1,144 @@
 .body-container {
-    background: linear-gradient(to top right, rgb(50, 222, 222),rgb(220, 56, 185));
-    min-height: 100vh;
+  background: linear-gradient(
+    to top right,
+    rgb(50, 222, 222),
+    rgb(220, 56, 185)
+  );
+  min-height: 100vh;
+  text-transform: capitalize;
 }
 
 .title-main {
-    text-transform: uppercase;
-    font-weight: bolder;
-    color: aliceblue;
-    font-family:sans-serif;
-    text-align: center;
+  text-transform: uppercase;
+  font-weight: bolder;
+  color: aliceblue;
+  font-family: sans-serif;
+  text-align: center;
 }
-
 
 .data-input {
-    border: solid red 3px;
-    padding: 3rem;
-    width: 50%;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 1rem;
-    text-align: center;
+  /*  border: solid red 3px; */
+  padding: 3rem;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+  text-align: center;
 }
 
-
-.input-value, .send-data {
-    flex: 1 1 0;
-    height: 50px;
+.input-value,
+.send-data {
+  flex: 1 1 0;
+  height: 50px;
 }
 
 .send-data {
-    background: rgb(12, 121, 245);
-    color: aliceblue;
-    cursor: pointer;
-    transition: background ease-in-out .5s;
+  background: rgb(12, 121, 245);
+  color: aliceblue;
+  cursor: pointer;
+  transition: background ease-in-out 0.5s;
 }
 
 .send-data:hover {
-    background:  rgb(104, 146, 194);
-    transition: background ease-in-out .5s;
+  background: rgb(104, 146, 194);
+  transition: background ease-in-out 0.5s;
 }
 
 .charging {
-    width: 200px;
-    display: block;
-    margin: 0 auto;
+  width: 200px;
+  display: block;
+  margin: 0 auto;
 }
 
 .options {
-    margin-top: 20px;
-/*     display: flex;
+  margin-top: 20px;
+  /*     display: flex;
     justify-content: space-around;
     gap: .5rem; */
 }
 
-
 .main {
-    border: solid green 3px;
-    margin-top: 5rem;
-    display: flex;
-    flex-direction: column;
+  /*  border: solid green 3px; */
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
 }
-
 
 .info-players {
-    border: solid magenta 3px;
-    display: flex;
-    justify-content: space-around;
+  /*  border: solid magenta 3px; */
+  display: flex;
+  justify-content: space-around;
+  font-size: x-large;
+  color: aliceblue;
 }
 
-.info-players,.span {
- font-weight: bold;
- font-family: sans-serif;
+.info-players,
+.span {
+  font-weight: bold;
+  font-family: sans-serif;
 }
 
 .main-hidden {
-    display: none;
-  
+  display: none;
 }
 
-
 .options {
+  /*   border: solid blue 3px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.options img {
+  max-width: 280px;
+  height: 200px;
+}
+.options button {
+  font-weight: bolder;
+  font-family: sans-serif;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  padding: 0.5rem;
+  font-size: large;
+  border-radius: 10px;
+  background: linear-gradient(
+    to top right,
+    rgb(39, 106, 208),
+    rgb(185, 70, 145)
+  );
+  border: none;
+  color: aliceblue;
+}
+
+.data-hidden {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 400px) {
+  .options {
     border: solid blue 3px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-}
+  }
 
-.options img {
-    max-width: 280px;
-    height: 200px;
-}
-.options button {
+  .options img {
+    max-width: 100px;
+    height: 100px;
+  }
+  .options button {
     font-weight: bolder;
     font-family: sans-serif;
     cursor: pointer;
     display: block;
     margin: 0 auto;
-    padding: .5rem;
+    padding: 0.2rem;
+  }
 }
-
-.data-hidden {
-    display: none;
-}
-
-.hidden{
-    display: none;
-}
-
-
-@media screen  and (max-width : 400px){
-    .options {
-        border: solid blue 3px;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-around;
-    }
-    
-    .options img {
-        max-width: 100px;
-        height: 100px;
-    }
-    .options button {
-        font-weight: bolder;
-        font-family: sans-serif;
-        cursor: pointer;
-        display: block;
-        margin: 0 auto;
-        padding: .2rem;
-    }
-}
-
-
-
-
-

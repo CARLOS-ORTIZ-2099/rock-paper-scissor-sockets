@@ -1,60 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body class="body-container">
-        <h1 class="title-main">rock paper scissor</h1>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="body-container">
+    <h1 class="title-main">rock paper scissor</h1>
 
     <div class="data-input">
-        <input class="input-value" type="text" placeholder="type here your name">
-        <button class="send-data">search players</button>
-    </div>   
+      <input
+        class="input-value"
+        type="text"
+        placeholder="type here your name"
+      />
+      <button class="send-data">search players</button>
+    </div>
 
     <!-- <h1 class="charging hidden">cargando...</h1> -->
-    <img class="charging hidden" src="./assets/oval.svg" alt="">
+    <img class="charging hidden" src="./assets/oval.svg" alt="" />
 
     <div class="main main-hidden">
-        <div class="info-players">
-            <span>name player :
-                <strong class="user-name"></strong>
-            </span>
-           
-            <span>is Turn :
-                <strong class="turn"></strong>
-            </span>
+      <div class="info-players">
+        <span
+          >name player :
+          <strong class="user-name"></strong>
+        </span>
 
-            <span>name rival :
-                <strong class="rival-name"></strong>
-            </span>
+        <span
+          >is Turn :
+          <strong class="turn"></strong>
+        </span>
+
+        <span
+          >name rival :
+          <strong class="rival-name"></strong>
+        </span>
+      </div>
+
+      <div class="options">
+        <div>
+          <img src="./images/rock.png" alt="" />
+
+          <button class="btn-option">piedra</button>
+        </div>
+        <div>
+          <img src="./images/paper.png" alt="" />
+
+          <button class="btn-option">papel</button>
         </div>
 
+        <div>
+          <img src="./images/scissor.png" alt="" />
 
-       <div class="options">
-           <div>
-                <img src="./images/rock.jpg" alt="">
-               
-                <button class="btn-option">piedra</button>
-           </div>
-           <div>
-                <img src="./images/paper.jpg" alt="">
-                
-                <button class="btn-option">papel</button>
-           </div>
-           
-           <div>
-                <img src="./images/scissor.jpg" alt="">
-               
-                <button class="btn-option">tijera</button>
-           </div>
-
-       </div>
+          <button class="btn-option">tijera</button>
+        </div>
+      </div>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
-        <script src="index.js"></script>
-</body>
+    <script src="index.js"></script>
+  </body>
 </html>
